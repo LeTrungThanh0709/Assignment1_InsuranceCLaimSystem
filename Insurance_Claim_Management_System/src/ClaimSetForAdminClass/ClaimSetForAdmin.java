@@ -1,6 +1,9 @@
 package ClaimSetForAdminClass;
 
 
+/**
+ * @author <Le Trung Thanh - S3993494>
+ */
 import ClaimClass.Claim;
 import ClaimProcessManagerInterface.ClaimProcessManager;
 
@@ -9,22 +12,51 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-public class ClaimSetForAdmin implements ClaimProcessManager {
+public class ClaimSetForAdmin implements ClaimProcessManager
+{
     // Attribute
-    private Set<Claim> listOfClaim;
+    private Set <Claim> listOfClaim;
+
 
 
     // default constructor
-    public ClaimSetForAdmin() {
+    public ClaimSetForAdmin()
+    {
         this.listOfClaim = new HashSet<Claim>();
     }
+
 
 
     // parameterized constructor
-    public ClaimSetForAdmin(Set<Claim> listOfClaim) {
+    public ClaimSetForAdmin(Set<Claim> listOfClaim)
+    {
         this.listOfClaim = new HashSet<Claim>();
-        this.listOfClaim.addAll(listOfClaim);
+        this.listOfClaim.addAll( listOfClaim );
     }
+
+
+
+    // define a method to check claim
+    public boolean checkClaim( Claim claim )
+    {
+        Iterator <Claim> iterator = this.listOfClaim.iterator();
+        while ( iterator.hasNext() )
+        {
+            if( iterator.next().equal( claim ) )
+            {
+                // the claim is already in the list
+                return false;
+            }
+        }
+
+
+
+        // the claim hasn't added into the list
+
+        return true;
+    }
+
+
     // define a method to add a claim
     public void addClaim( Claim claim )
     {
@@ -36,7 +68,7 @@ public class ClaimSetForAdmin implements ClaimProcessManager {
     // define a method to update claim
     public boolean updateClaim( Claim claim, String newStatus )
     {
-        Iterator<Claim> iterator = this.listOfClaim.iterator();
+        Iterator <Claim> iterator = this.listOfClaim.iterator();
         while ( iterator.hasNext() )
         {
             if( iterator.next().equal( claim ) )
@@ -61,7 +93,7 @@ public class ClaimSetForAdmin implements ClaimProcessManager {
     // define a method to get all claims
     public void getAll()
     {
-        ArrayList<Claim> claimArrayList = new ArrayList<>( this.listOfClaim );
+        ArrayList <Claim> claimArrayList = new ArrayList<>( this.listOfClaim );
         // sorted in order of claim date
         for( int i = 0; i < claimArrayList.size(); i ++ )
         {
@@ -103,6 +135,25 @@ public class ClaimSetForAdmin implements ClaimProcessManager {
 
     }
 
+
+    // define a method to payingProcess
+    public boolean payingProcess( Claim claim, double amount )
+    {
+        Iterator <Claim> iterator = this.listOfClaim.iterator();
+        while ( iterator.hasNext() )
+        {
+            if( iterator.next().equal( claim ) )
+            {
+                if( claim.payingClaim( amount ) )
+                {
+                    claim.setStatus( "Done");
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
 
     public Set<Claim> getListOfClaim() {
         return listOfClaim;

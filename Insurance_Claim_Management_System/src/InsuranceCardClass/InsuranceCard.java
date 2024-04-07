@@ -1,11 +1,13 @@
 package InsuranceCardClass;
 
-
+/**
+ * @author <Le Trung Thanh - S3993494>
+ */
 import PolicyHolderClass.PolicyHolder;
-
 import java.util.Date;
 
-public class InsuranceCard {
+public class InsuranceCard
+{
     // Attributes
     private String cardNumber;
     private PolicyHolder policyHolder;
@@ -13,8 +15,10 @@ public class InsuranceCard {
     private Date expirationDate;
 
 
+
     // default constructor
-    public InsuranceCard() {
+    public InsuranceCard()
+    {
         this.cardNumber = "Default";
         this.policyHolder = null;
         this.policyOwner = "Default";
@@ -32,6 +36,8 @@ public class InsuranceCard {
         this.expirationDate = expirationDate;
     }
 
+
+
     // define a method to compare two insurances card
     public boolean equal( InsuranceCard insuranceCard )
     {
@@ -41,6 +47,7 @@ public class InsuranceCard {
         }
         return false;
     }
+
 
     public void setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;
@@ -80,5 +87,4 @@ public class InsuranceCard {
     public String insuranceCardToString() {
         return policyHolder.getId() + "," + cardNumber + "," + policyOwner + "," + expirationDate.toString() + "\n";
     }
-
 }

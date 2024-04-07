@@ -1,28 +1,42 @@
 package PolicyHolderClass;
 
-import CustomerClass.Customer;
-import DependentClass.Dependent;
-import InsuranceCardClass.InsuranceCard;
-
+/**
+ * @author <Le Trung Thanh - S3993494>
+ */
 import java.util.Iterator;
+import java.util.Set;
 
-public class PolicyHolder extends Customer {
+import AdminClass.Admin;
+import DependentClass.Dependent;
+
+import ClaimSetForCustomerClass.ClaimSetForCustomer;
+import CustomerClass.Customer;
+import java.util.HashSet;
+import  DependentSetForPolicyHolder.DependentSet;
+import InsuranceCardClass.InsuranceCard;
+public class PolicyHolder extends Customer
+{
     // Attributes
     private DependentSet listOfDependent;
 
 
+
     // default constructor
-    public PolicyHolder() {
+    public PolicyHolder()
+    {
         super();
         this.listOfDependent = new DependentSet();
     }
 
 
+
     // constructor with a parameter
-    public PolicyHolder(String id, String fullName, InsuranceCard insuranceCard, ClaimSetForCustomer claimSetForCustomer, DependentSet listOfDependent) {
-        super(id, fullName, insuranceCard, claimSetForCustomer);
+    public PolicyHolder(String id, String fullName, InsuranceCard insuranceCard, ClaimSetForCustomer claimSetForCustomer, DependentSet listOfDependent )
+    {
+        super(id, fullName, insuranceCard, claimSetForCustomer );
         this.listOfDependent = listOfDependent;
     }
+
 
 
     // define a method to add an insurance card
@@ -37,7 +51,7 @@ public class PolicyHolder extends Customer {
 
 
             // add the insuranceCard to all the dependents
-            Iterator<Dependent> iterator = this.listOfDependent.getListOfDependent().iterator();
+            Iterator <Dependent> iterator = this.listOfDependent.getListOfDependent().iterator();
             while ( iterator.hasNext() )
             {
                 iterator.next().setInsuranceCard( insuranceCard );
@@ -73,6 +87,9 @@ public class PolicyHolder extends Customer {
         }
         System.out.println();
     }
+
+
+
 
 
 }

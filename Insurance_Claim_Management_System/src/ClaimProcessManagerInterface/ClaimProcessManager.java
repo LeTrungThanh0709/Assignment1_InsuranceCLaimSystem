@@ -1,7 +1,10 @@
 package ClaimProcessManagerInterface;
 
-
+/**
+ * @author <Le Trung Thanh - S3993494>
+ */
 import ClaimClass.Claim;
+import java.util.Set;
 
 public interface ClaimProcessManager
 {

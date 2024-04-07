@@ -1,5 +1,9 @@
 package InsuranceCardSetClass;
 
+/**
+ * @author <Le Trung Thanh - S3993494>
+ */
+
 import InsuranceCardClass.InsuranceCard;
 
 import java.util.ArrayList;
@@ -10,7 +14,7 @@ import java.util.Set;
 public class InsuranceCardSet
 {
     // Attribute
-    private Set<InsuranceCard> listOfInsurance;
+    private Set <InsuranceCard> listOfInsurance;
 
 
 
@@ -35,7 +39,7 @@ public class InsuranceCardSet
     // define a method to add the insurance card
     public boolean addInsuranceCard( InsuranceCard insuranceCard )
     {
-        Iterator<InsuranceCard> iterator = this.listOfInsurance.iterator();
+        Iterator <InsuranceCard> iterator = this.listOfInsurance.iterator();
         while ( iterator.hasNext() )
         {
             if( iterator.next().equal( insuranceCard ) )
@@ -57,7 +61,7 @@ public class InsuranceCardSet
     // define a method to print all insurance card in expirationDate order
     public void getAll()
     {
-        ArrayList<InsuranceCard> insuranceCardArrayList = new ArrayList<>(this.listOfInsurance);
+        ArrayList <InsuranceCard> insuranceCardArrayList = new ArrayList<>(this.listOfInsurance);
         for ( int i = 0; i < insuranceCardArrayList.size(); i ++ )
         {
             for ( int j = i + 1; j < insuranceCardArrayList.size(); j ++ )
