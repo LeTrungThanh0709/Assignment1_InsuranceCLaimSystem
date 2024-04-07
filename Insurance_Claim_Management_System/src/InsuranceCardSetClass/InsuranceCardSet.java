@@ -1,6 +1,5 @@
 package InsuranceCardSetClass;
 
-
 import InsuranceCardClass.InsuranceCard;
 
 import java.util.ArrayList;
@@ -8,23 +7,29 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-public class InsuranceCardSet {
+public class InsuranceCardSet
+{
     // Attribute
     private Set<InsuranceCard> listOfInsurance;
 
 
+
     // default constructor
-    public InsuranceCardSet() {
+    public InsuranceCardSet()
+    {
         this.listOfInsurance = new HashSet<InsuranceCard>();
     }
+
 
 
     // parameterized constructor
 
-    public InsuranceCardSet(Set<InsuranceCard> listOfInsurance) {
+    public InsuranceCardSet(Set<InsuranceCard> listOfInsurance)
+    {
         this.listOfInsurance = new HashSet<InsuranceCard>();
-        this.listOfInsurance.addAll(listOfInsurance);
+        this.listOfInsurance.addAll( listOfInsurance );
     }
+
 
 
     // define a method to add the insurance card
@@ -88,6 +93,7 @@ public class InsuranceCardSet {
 
         return null;
     }
+
 
     public Set<InsuranceCard> getListOfInsurance() {
         return listOfInsurance;
