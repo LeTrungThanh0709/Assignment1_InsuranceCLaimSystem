@@ -1,6 +1,10 @@
 package PolicyHolderClass;
 
 import CustomerClass.Customer;
+import DependentClass.Dependent;
+import InsuranceCardClass.InsuranceCard;
+
+import java.util.Iterator;
 
 public class PolicyHolder extends Customer {
     // Attributes
@@ -18,6 +22,56 @@ public class PolicyHolder extends Customer {
     public PolicyHolder(String id, String fullName, InsuranceCard insuranceCard, ClaimSetForCustomer claimSetForCustomer, DependentSet listOfDependent) {
         super(id, fullName, insuranceCard, claimSetForCustomer);
         this.listOfDependent = listOfDependent;
+    }
+
+
+    // define a method to add an insurance card
+    public boolean addInsuranceCard(InsuranceCard insuranceCard )
+    {
+        // check whether or not the policyholder had the insuranceCard
+        if( this.getInsuranceCard() == null )
+        {
+            // the policyholder hasn't had the insuranceCard yet
+            this.setInsuranceCard( insuranceCard );
+            insuranceCard.setPolicyHolder( this );
+
+
+            // add the insuranceCard to all the dependents
+            Iterator<Dependent> iterator = this.listOfDependent.getListOfDependent().iterator();
+            while ( iterator.hasNext() )
+            {
+                iterator.next().setInsuranceCard( insuranceCard );
+            }
+            return true;
+        }
+
+        return false;
+    }
+
+
+
+    // define a method to add a dependent
+    public boolean addDependent( Dependent dependent )
+    {
+        if( this.listOfDependent.addDependent( dependent ) )
+        {
+            dependent.setPolicyHolder( this );
+            return true;
+        }
+
+        return false;
+    }
+
+
+    // define a method to print a policyHolder
+    public void printPolicyHolder()
+    {
+        System.out.printf("- %s(id: %s), dependents: ", this.getFullName(), this.getId());
+        for ( Dependent dependent : this.listOfDependent.getListOfDependent() )
+        {
+            System.out.print( dependent.getFullName() + "(id: " + dependent.getId() + ")" + "   ");
+        }
+        System.out.println();
     }
 
 

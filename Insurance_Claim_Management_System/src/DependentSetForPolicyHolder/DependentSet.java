@@ -1,4 +1,4 @@
-package DependentSetClass;
+package DependentSetForPolicyHolder;
 
 
 import DependentClass.Dependent;
