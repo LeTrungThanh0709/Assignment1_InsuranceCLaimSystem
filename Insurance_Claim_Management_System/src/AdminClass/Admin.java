@@ -450,6 +450,8 @@ public class Admin
     public void userInterface()
     {
         this.loadData();
+        System.out.println( "\n\n**********INSURANCE CLAIM MANAGEMENT SYSTEM APPLICATION**********");
+        System.out.println( "Here are 4 options: ");
         while( true )
         {
             // create three options
